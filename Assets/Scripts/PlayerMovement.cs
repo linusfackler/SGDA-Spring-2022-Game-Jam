@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // private Rigidbody2D body;
 
     Vector2 move;
+    Vector2 jump;
 
     PlayerControls controls;
 
@@ -21,19 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
         controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
-
-        controls.Gameplay.Jump.performed += ctx => Jump();
-
-    }
-
-    void Jump()
-    {
-        Debug.Log("Wants to jump!");
     }
 
     void Update()
     {
-        Vector2 m = new Vector2(move.x, 0) * speed * Time.deltaTime;
+        Vector2 m = new Vector2(move.x, move.y) * speed * Time.deltaTime;
         transform.Translate(m, Space.World);
 
 

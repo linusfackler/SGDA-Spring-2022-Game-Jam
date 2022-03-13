@@ -35,40 +35,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""80d78ce8-5d40-47a4-b7f9-2438c2192dba"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""70b330ac-1723-40dc-9364-a73f66fe56a8"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e471414f-8447-4336-9e5f-dbd1d0e32fe6"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""3c3f0126-bd82-4cd1-9110-8e091f94e652"",
@@ -83,7 +52,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""17a40d9d-4aaa-48a7-8411-f14b4e928876"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -138,7 +107,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""6dfc7b56-1967-4e8c-be29-f5d1129c2c99"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -210,7 +179,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
-        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,13 +239,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
-    private readonly InputAction m_Gameplay_Jump;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
         public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -290,9 +256,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -300,9 +263,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -328,6 +288,5 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
     }
 }
