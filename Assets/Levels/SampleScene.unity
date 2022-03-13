@@ -353,8 +353,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 9677d933-d933-4161-b0a9-e267280090f8
-    m_ActionName: Gameplay/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+    m_ActionId: 79da4c8d-720c-45b1-9c53-30a2f9aca172
+    m_ActionName: Gameplay/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -449,7 +449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964201789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1583, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -542,11 +542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8083242773264051736, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.89
+      value: -3.924
       objectReference: {fileID: 0}
     - target: {fileID: 8083242773264051736, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.38
+      value: -1.413
       objectReference: {fileID: 0}
     - target: {fileID: 8083242773264051736, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -590,15 +590,23 @@ PrefabInstance:
       objectReference: {fileID: 1664560652}
     - target: {fileID: 8083242773264051737, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: speed
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8083242773264051737, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 1964201790}
     - target: {fileID: 8083242773264051737, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
+      propertyPath: jumpingPower
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083242773264051737, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083242773264051738, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8083242773264051738, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: m_GravityScale

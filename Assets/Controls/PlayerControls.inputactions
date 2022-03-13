@@ -17,7 +17,7 @@
                 {
                     "name": "Jump",
                     "type": "Button",
-                    "id": "9677d933-d933-4161-b0a9-e267280090f8",
+                    "id": "79da4c8d-720c-45b1-9c53-30a2f9aca172",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -137,7 +137,7 @@
                 },
                 {
                     "name": "",
-                    "id": "95fee31e-95bc-4cb8-b65f-c0038062adad",
+                    "id": "a369797e-7e6b-4845-8108-3cfe2062a201",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -148,7 +148,7 @@
                 },
                 {
                     "name": "",
-                    "id": "5e3db100-22b2-4b73-bb11-17e5089f2487",
+                    "id": "35b7b88d-f789-4d7f-aa66-4c812c964279",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
