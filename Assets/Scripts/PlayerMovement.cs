@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     PlayerControls controls;
 
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
 
     void Awake()
     {
@@ -22,8 +22,13 @@ public class PlayerMovement : MonoBehaviour
         controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
 
-        controls.Gameplay.Jump.performed += ctx =>
+        controls.Gameplay.Jump.performed += ctx => Jump();
 
+    }
+
+    void Jump()
+    {
+        Debug.Log("Wants to jump!");
     }
 
     void Update()
