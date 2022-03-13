@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float jumpingPower;
     private bool isFacingRight = true;
+    private int numJumps;
 
     void Update()
     {
@@ -24,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        if (isGrounded())
+        {
+            numJumps = 1;
+        }
     }
 
     private void FixedUpdate()
@@ -33,14 +39,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && isGrounded())
+        if (context.performed && numJumps > 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            numJumps--;
         }
 
         if (context.canceled && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
+        }
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    public void Land(InputAction.CallbackContext context)
+    {
+        if (!isGrounded())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -speed*0.8f);
         }
     }
 
@@ -57,8 +77,5 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        horizontal = context.ReadValue<Vector2>().x;
-    }
+
 }
