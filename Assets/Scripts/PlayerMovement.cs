@@ -5,14 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // private Rigidbody2D body;
+    private Rigidbody2D body;
 
     Vector2 move;
-    Vector2 jump;
 
     PlayerControls controls;
 
     [SerializeField] public float speed;
+
+    private float fallingspeed = -2.5f;
 
     void Awake()
     {
@@ -27,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Vector2 m = new Vector2(move.x, move.y) * speed * Time.deltaTime;
-        transform.Translate(m, Space.World);
 
+        transform.Translate(m, Space.World);
 
     }
 

@@ -333,7 +333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8083242773264051737, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: speed
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083242773264051738, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8083242773264051739, guid: 0fc52b621b9164442acdac6259b652e0, type: 3}
       propertyPath: m_Sprite

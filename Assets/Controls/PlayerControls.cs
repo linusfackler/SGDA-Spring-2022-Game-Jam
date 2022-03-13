@@ -54,7 +54,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""id"": ""17a40d9d-4aaa-48a7-8411-f14b4e928876"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=3)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
