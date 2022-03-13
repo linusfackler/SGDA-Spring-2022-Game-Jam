@@ -1,22 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D body;
-    [SerializeField] private float speed;    
+    // private Rigidbody2D body;
 
-    private void Awake()
+    Vector2 move;
+
+    PlayerControls controls;
+
+    [SerializeField] private float speed;
+
+    void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        // body = GetComponent<Rigidbody2D>();
+
+        controls = new PlayerControls();
+
+        controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
+
+        controls.Gameplay.Jump.performed += ctx =>
+
     }
 
-    private void Update()
+    void Update()
     {
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        Vector2 m = new Vector2(move.x, 0) * speed * Time.deltaTime;
+        transform.Translate(m, Space.World);
 
-        if (Input.GetKey(KeyCode.Space));
+
+    }
+
+    void OnEnable()
+    {
+        controls.Gameplay.Enable();
+    }
+
+    void OnDisable()
+    {
+        controls.Gameplay.Disable();
     }
 
 }
