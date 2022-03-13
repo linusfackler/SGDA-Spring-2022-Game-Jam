@@ -7,9 +7,18 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "beade3bf-39d5-4a0d-a568-32acba8b43b4",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "9677d933-d933-4161-b0a9-e267280090f8",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -30,7 +39,7 @@
                 {
                     "name": "up",
                     "id": "17a40d9d-4aaa-48a7-8411-f14b4e928876",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "",
                     "interactions": "",
                     "processors": "Scale(factor=3)",
                     "groups": "Gamepad",
@@ -85,7 +94,7 @@
                 {
                     "name": "up",
                     "id": "6dfc7b56-1967-4e8c-be29-f5d1129c2c99",
-                    "path": "<Keyboard>/space",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -125,6 +134,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "95fee31e-95bc-4cb8-b65f-c0038062adad",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e3db100-22b2-4b73-bb11-17e5089f2487",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
