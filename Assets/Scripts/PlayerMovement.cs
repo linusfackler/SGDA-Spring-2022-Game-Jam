@@ -11,20 +11,20 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
 
     private float horizontal;
-    public float speed;
-    public float jumpingPower;
+    public float speed;             // unique stat - running speed
+    public float jumpingPower;      // unique stat - jumping speed
+    private int numJumps;           // number of jumps
     private bool isFacingRight = true;
-    private int numJumps;
 
     void Update()
     {
         if (!isFacingRight && horizontal > 0f)
         {
-            Flip();
+            Flip();         // flip if character moves in opposite direction
         }
         else if (isFacingRight && horizontal < 0f)
         {
-            Flip();
+            Flip();         // flip if character moves in opposite direction
         }
 
         if (Mathf.Abs(rb.velocity.y) == 0)
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsDoubleJump", false);
             animator.SetBool("IsFalling", false);
+            // number of jumps reset, animation reset
         }
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
@@ -45,17 +46,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log("NumJumps: " + numJumps);
-
         if (context.performed && numJumps > 0)
         {
             animator.SetBool("IsJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        
-            if (context.canceled)
-            {
-                numJumps--;
-            }
         }
 
         if (numJumps <= 1)
@@ -67,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (context.canceled && rb.velocity.y > 0f)
         {
+            numJumps--;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
         }
     }
@@ -82,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, -speed*0.8f);
             animator.SetBool("IsFalling", true);
+            animator.SetBool("IsDoubleJump", false);
+            animator.SetBool("IsJumping", false);
         }
     }
 
