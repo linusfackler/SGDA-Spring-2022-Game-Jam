@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
 
-        if (isGrounded())
+        if (Mathf.Abs(rb.velocity.y) == 0)
         {
             numJumps = 2;
             animator.SetBool("IsJumping", false);
@@ -35,10 +35,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsFalling", false);
         }
 
-        if (rb.velocity.y == 0)
-        {
-            animator.SetFloat("Speed", Mathf.Abs(horizontal));            
-        }
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
     }
 
     private void FixedUpdate()
@@ -48,26 +45,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            numJumps--;
-        }
+        Debug.Log("NumJumps: " + numJumps);
 
         if (context.performed && numJumps > 0)
         {
             animator.SetBool("IsJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-
-            Debug.Log("NumJumps: " + numJumps);
-
-
-            if (numJumps == 0)
+        
+            if (context.canceled)
             {
-                animator.SetBool("IsJumping", false);
-                animator.SetBool("IsDoubleJump", true);
+                numJumps--;
             }
         }
 
+        if (numJumps <= 1)
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsDoubleJump", true);
+            Debug.Log("REACHED DOUBLE JUMP");
+        }
 
         if (context.canceled && rb.velocity.y > 0f)
         {
