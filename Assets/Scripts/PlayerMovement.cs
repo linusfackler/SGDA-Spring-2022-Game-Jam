@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public Animator animator;
 
     private float horizontal;
     public float speed;
@@ -28,7 +29,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded())
         {
-            numJumps = 1;
+            numJumps = 2;
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsDoubleJump", false);
+            animator.SetBool("IsFalling", false);
+        }
+
+        if (rb.velocity.y == 0)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(horizontal));            
         }
     }
 
@@ -39,11 +48,26 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && numJumps > 0)
+        if (context.started)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             numJumps--;
         }
+
+        if (context.performed && numJumps > 0)
+        {
+            animator.SetBool("IsJumping", true);
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+            Debug.Log("NumJumps: " + numJumps);
+
+
+            if (numJumps == 0)
+            {
+                animator.SetBool("IsJumping", false);
+                animator.SetBool("IsDoubleJump", true);
+            }
+        }
+
 
         if (context.canceled && rb.velocity.y > 0f)
         {
@@ -61,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, -speed*0.8f);
+            animator.SetBool("IsFalling", true);
         }
     }
 
