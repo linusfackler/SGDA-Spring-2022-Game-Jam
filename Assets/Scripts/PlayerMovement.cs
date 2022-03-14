@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,26 +8,22 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public Animator animator;
 
-    private float horizontal;
+    private float horizontal;       // moving direction on x-axis
     public float speed;             // unique stat - running speed
     public float jumpingPower;      // unique stat - jumping speed
-    private int numJumps;           // number of jumps
+    private bool hasDoubleJumped;   // controls whether double jump used
     private bool isFacingRight = true;
 
     void Update()
     {
         if (!isFacingRight && horizontal > 0f)
-        {
             Flip();         // flip if character moves in opposite direction
-        }
         else if (isFacingRight && horizontal < 0f)
-        {
             Flip();         // flip if character moves in opposite direction
-        }
 
         if (Mathf.Abs(rb.velocity.y) == 0)
         {
-            numJumps = 2;
+            hasDoubleJumped = false;
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsDoubleJump", false);
             animator.SetBool("IsFalling", false);
@@ -37,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        // set speed variable for animations
     }
 
     private void FixedUpdate()
@@ -46,22 +41,32 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && numJumps > 0)
+        if (context.started)
         {
-            animator.SetBool("IsJumping", true);
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            if (hasDoubleJumped)
+            {
+                return;
+            }
+
+            if (rb.velocity.y == 0)
+            {
+                animator.SetBool("IsJumping", true);
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            }
+
+            else
+            {
+                animator.SetBool("IsJumping", true);
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);        
+                hasDoubleJumped = true; 
+                animator.SetBool("IsJumping", false);
+                animator.SetBool("IsDoubleJump", true);
+            }
         }
 
-        if (numJumps <= 1)
-        {
-            animator.SetBool("IsJumping", false);
-            animator.SetBool("IsDoubleJump", true);
-            Debug.Log("REACHED DOUBLE JUMP");
-        }
 
         if (context.canceled && rb.velocity.y > 0f)
         {
-            numJumps--;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
         }
     }
