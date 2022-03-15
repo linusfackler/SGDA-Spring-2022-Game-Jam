@@ -15,7 +15,9 @@ public class SliderScript : MonoBehaviour, ISelectHandler, IDeselectHandler
         if (context.performed && isSelected)
         {
             horizontal = context.ReadValue<Vector2>().x;
-            gameObject.GetComponentInChildren<Slider>().value += horizontal*10;
+            print("Horizontal: " + horizontal);
+            gameObject.GetComponentInChildren<Slider>().value += horizontal*0.1f;
+            AudioListener.volume = gameObject.GetComponentInChildren<Slider>().value;
         }
     }
 
