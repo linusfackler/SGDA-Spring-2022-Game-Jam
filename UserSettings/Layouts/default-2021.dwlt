@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1374.4
     height: 1060.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 80424
+  controlID: 27
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 80425
+  controlID: 28
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,8 +165,8 @@ MonoBehaviour:
     y: 0
     width: 215.2
     height: 673.6
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -221,8 +221,8 @@ MonoBehaviour:
     y: 0
     width: 298.40002
     height: 673.6
-  m_MinSize: {x: 275, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -802,9 +802,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 94cf0000
-      m_LastClickedID: 53140
-      m_ExpandedIDs: eac3feff1ae0feffdae0feff4eeffeffcef6feff46f7feff00f8feff5816ffff9220ffffb696ffff32adffff04afffffb0caffffe0caffff00d0ffff08d0ffff52d0ffff54d0ffff9ed0ffffa6d0ffffeed0fffff0d0ffff3cd1ffff44d1ffff8cd1ffff8ed1ffffdad1ffffe2d1ffff2cd2ffff30d2ffff7ad2ffff82d2ffffbae1ffffb6f2ffff2afbfffffe600000166100004861000038a1000088a10000d2a1000078a300001cb100006ab10000a4b10000b2b10000c6be000000bf00000ebf0000e8cc000096cd000016ce0000d2ce0000
+      m_SelectedIDs: 5af6ffff
+      m_LastClickedID: -2470
+      m_ExpandedIDs: 2afbffff2c6100006a610000ba610000f662000046630000b0630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1075,9 +1075,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 459.79965, y: 236.65442, z: -11.832457}
+    m_Target: {x: 430.91354, y: 197.40002, z: -13.040003}
     speed: 2
-    m_Value: {x: 459.79965, y: 236.65442, z: -11.832457}
+    m_Value: {x: 430.91354, y: 197.40002, z: -13.040003}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1128,9 +1128,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 376.22226
+    m_Target: 366.43765
     speed: 2
-    m_Value: 376.22226
+    m_Value: 366.43765
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1782,22 +1782,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\LinusFackler\Documents\GitHub\SGDA-Spring-2022-Game-Jam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 7.7999268}
-    m_SelectedIDs: 30620000
-    m_LastClickedID: 25136
-    m_ExpandedIDs: 000000001e6200002062000022620000246200002662000030620000cc6800009477000024790000067e000000ca9a3b
+    m_SelectedIDs: 3a650000
+    m_LastClickedID: 25914
+    m_ExpandedIDs: 00000000026500000465000006650000086500000a6500000c6500000e65000010650000126500001465000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1825,7 +1825,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001e6200002062000022620000246200002662000000ca9a3b
+    m_ExpandedIDs: 00000000026500000465000006650000086500000a6500000c6500000e650000106500001265000014650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1939,4 +1939,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -81924
+  m_LastSelectedObjectID: -2470
