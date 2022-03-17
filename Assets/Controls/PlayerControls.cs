@@ -192,7 +192,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Join"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""9da81746-f1c7-4d01-9d21-91304c63be94"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

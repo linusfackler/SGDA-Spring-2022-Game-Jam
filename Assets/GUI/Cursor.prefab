@@ -137,19 +137,7 @@ MonoBehaviour:
     m_ActionId: 4620a766-ccad-4a6b-bda4-637175ffd269
     m_ActionName: UI/Slide[/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8617244830770039223, guid: 03dcc9819762ef144baf4bc1fd702a2c, type: 3}
-        m_TargetAssemblyTypeName: JoinPlayer, Assembly-CSharp
-        m_MethodName: Join
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9da81746-f1c7-4d01-9d21-91304c63be94
     m_ActionName: UI/Join[/XInputControllerWindows/start,/Keyboard/enter]
   - m_PersistentCalls:
