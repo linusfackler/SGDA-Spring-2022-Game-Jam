@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class ChangeTextColor : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class TextColor : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     void ISelectHandler.OnSelect(BaseEventData eventData)
     {
