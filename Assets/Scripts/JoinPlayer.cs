@@ -19,6 +19,8 @@ public class JoinPlayer : MonoBehaviour
         Debug.Log("PlayerInput ID: " + playerInput.playerIndex);
     }
 
+    // join function added
+    // makes player selected by p1 and p2 visible
     public void Join(InputAction.CallbackContext context)
     {
         if (context.started)
