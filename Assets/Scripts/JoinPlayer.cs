@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.Users;
 
 public class JoinPlayer : MonoBehaviour
 {    
