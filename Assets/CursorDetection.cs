@@ -9,6 +9,8 @@ public class CursorDetection : MonoBehaviour
     private GraphicRaycaster gr;
     private PointerEventData pointerEventData = new PointerEventData(null);
 
+    public Rigidbody2D rb;
+
     void Start()
     {
         gr = GetComponent<GraphicRaycaster>();
@@ -16,7 +18,7 @@ public class CursorDetection : MonoBehaviour
 
     void Update()
     {
-        pointerEventData.position = Camera.main.WorldToScreenPoint(transform.position);
+        pointerEventData.position = Camera.main.WorldToScreenPoint(rb.position);
         List<RaycastResult> results = new List<RaycastResult>();
         gr.Raycast(pointerEventData, results);
 
@@ -25,4 +27,15 @@ public class CursorDetection : MonoBehaviour
             print(results[0].gameObject.name);
         }
     }
+    // Ray ray;
+    // RaycastHit hit;
+
+    // void Update()
+    // {
+    //     ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //     if(Physics.Raycast(ray, out hit))
+    //     {
+    //         print (hit.collider.name);
+    //     }
+    // }
 }
