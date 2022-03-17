@@ -12,7 +12,6 @@ public class JoinPlayer : MonoBehaviour
     public GameObject pressEnterRed;
     public GameObject pressEnterBlue;
     public Button redStart;
-    public Button blueStart;
 
 
     public void Join(InputAction.CallbackContext context)
@@ -29,7 +28,6 @@ public class JoinPlayer : MonoBehaviour
             {
                 playerBlue.SetActive(true);
                 pressEnterBlue.SetActive(false);
-                blueStart.Select();
             }
 
             else
