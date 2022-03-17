@@ -13,6 +13,10 @@ public class JoinPlayer : MonoBehaviour
     public GameObject pressEnterBlue;
     // public Button redStart;
 
+    void OnPlayerJoined(PlayerInput playerInput)
+    {    
+        Debug.Log("PlayerInput ID: " + playerInput.playerIndex);
+    }
 
     public void Join(InputAction.CallbackContext context)
     {

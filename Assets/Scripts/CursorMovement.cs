@@ -11,11 +11,11 @@ public class CursorMovement : MonoBehaviour
     public Rigidbody2D rb;
 
 
-    void Update()
-    {
-        print("horizontal: " + rb.position.x);
-        print("vertical: " + rb.position.y);
-    }
+    // void Update()
+    // {
+    //     print("horizontal: " + rb.position.x);
+    //     print("vertical: " + rb.position.y);
+    // }
 
     private void FixedUpdate()
     {
