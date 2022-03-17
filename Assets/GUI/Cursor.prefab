@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -145,6 +145,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 519305cd-9f58-4dab-b1e5-2a0a2093a28f
     m_ActionName: UI/Click[/XInputControllerWindows/buttonSouth,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a3e4aebb-1e3b-43eb-b4b1-7fca427154d8
+    m_ActionName: UI/Leave[/XInputControllerWindows/buttonEast,/Keyboard/backspace]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -199,4 +203,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bb884278b177441bc8ac2292874c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2400688400997443898}

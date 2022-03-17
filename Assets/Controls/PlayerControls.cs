@@ -207,6 +207,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3e4aebb-1e3b-43eb-b4b1-7fca427154d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -506,6 +515,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d89a86a6-9acb-4eba-82cd-da9bcd3a653d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb2926a8-b79c-470b-8ccd-d884a58decc9"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -546,6 +577,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_UI_Slide = m_UI.FindAction("Slide", throwIfNotFound: true);
         m_UI_Join = m_UI.FindAction("Join", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        m_UI_Leave = m_UI.FindAction("Leave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -658,6 +690,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Slide;
     private readonly InputAction m_UI_Join;
     private readonly InputAction m_UI_Click;
+    private readonly InputAction m_UI_Leave;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
@@ -666,6 +699,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Slide => m_Wrapper.m_UI_Slide;
         public InputAction @Join => m_Wrapper.m_UI_Join;
         public InputAction @Click => m_Wrapper.m_UI_Click;
+        public InputAction @Leave => m_Wrapper.m_UI_Leave;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -687,6 +721,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
+                @Leave.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLeave;
+                @Leave.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLeave;
+                @Leave.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLeave;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -703,6 +740,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
+                @Leave.started += instance.OnLeave;
+                @Leave.performed += instance.OnLeave;
+                @Leave.canceled += instance.OnLeave;
             }
         }
     }
@@ -737,5 +777,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnSlide(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
     }
 }
