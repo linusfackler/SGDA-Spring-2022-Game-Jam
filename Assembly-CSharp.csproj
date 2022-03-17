@@ -45,7 +45,6 @@
      <Compile Include="Assets\Scripts\TextColor.cs" />
      <Compile Include="Assets\Scripts\SelectBlue.cs" />
      <Compile Include="Assets\Scripts\CursorMovement.cs" />
-     <Compile Include="Assets\Scripts\CursorDetails.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

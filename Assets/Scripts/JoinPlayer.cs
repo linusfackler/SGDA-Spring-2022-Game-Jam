@@ -11,26 +11,31 @@ public class JoinPlayer : MonoBehaviour
     public GameObject pressEnterRed;
     public GameObject pressEnterBlue;
 
+    public Transform[] spawnLocations;
+    public Transform canvas;
+
     public void OnPlayerJoined(PlayerInput playerInput)
     {    
-        Debug.Log("PlayerInput ID: " + playerInput.playerIndex);
-        print("landed in joined function");
+
+        playerInput.gameObject.GetComponent<CursorMovement>().playerID = playerInput.playerIndex + 1;
+        playerInput.gameObject.GetComponent<CursorMovement>().startPos = spawnLocations[playerInput.playerIndex].position;
+        playerInput.gameObject.transform.SetParent(canvas);
+        playerInput.gameObject.transform.SetAsLastSibling();
+
+        playerInput.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
+
         if (!playerRed.activeSelf)
         {
             playerRed.SetActive(true);
             pressEnterRed.SetActive(false);
-            // redStart.Select();
         }
         else if (!playerBlue.activeSelf)
         {
             playerBlue.SetActive(true);
             pressEnterBlue.SetActive(false);
         }
-
-        // if all players joine already, do nothing
         else
-        {
             return;
-        }
     }
 }

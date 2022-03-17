@@ -10,12 +10,13 @@ public class CursorMovement : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
 
+    public int playerID;
+    public Vector2 startPos;
 
-    // void Update()
-    // {
-    //     print("horizontal: " + rb.position.x);
-    //     print("vertical: " + rb.position.y);
-    // }
+    void Start()
+    {
+        transform.position = startPos;
+    }
 
     private void FixedUpdate()
     {
