@@ -37,6 +37,7 @@ public class JoinPlayer : MonoBehaviour
                 pressEnterBlue.SetActive(false);
             }
 
+            // if all players joine already, do nothing
             else
             {
                 return;
