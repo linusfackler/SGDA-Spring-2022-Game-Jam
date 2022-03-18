@@ -28,7 +28,7 @@ public class CursorDetection : MonoBehaviour
 
     async void Update()
     {
-        pointerEventData.position = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x - 20f, transform.position.y + 70f, transform.position.z));
+        pointerEventData.position = Camera.main.WorldToScreenPoint(transform.position);
         print("pointer position: " + pointerEventData.position);
         List<RaycastResult> results = new List<RaycastResult>();
         gr.Raycast(pointerEventData, results);

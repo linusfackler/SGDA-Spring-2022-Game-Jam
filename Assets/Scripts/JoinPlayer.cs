@@ -20,7 +20,7 @@ public class JoinPlayer : MonoBehaviour
         playerInput.gameObject.transform.SetAsLastSibling();
         playerInput.gameObject.name = "Player" + id;
 
-        playerInput.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        //playerInput.gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
         if (!players[id].activeSelf)
         {
