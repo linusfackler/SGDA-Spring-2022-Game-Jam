@@ -198,39 +198,6 @@
             ],
             "bindings": [
                 {
-                    "name": "Joystick",
-                    "id": "9dc70ddf-a720-40f2-806c-e174e94ce047",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "146639d1-05a1-4a8a-8d26-93227003c64d",
-                    "path": "<Joystick>/stick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "713bf8db-9345-44c5-b71d-be4ebc61933b",
-                    "path": "<Joystick>/stick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Keyboard",
                     "id": "9ca14c68-cb34-4c34-9935-5cc52394cef8",
                     "path": "2DVector",
