@@ -14,8 +14,6 @@ public class CursorDetection : MonoBehaviour
     private GameObject current;
     private int objectID;
 
-    //private int id;
-
     void Start()
     {
         gr = GetComponentInParent<GraphicRaycaster>();
@@ -27,6 +25,7 @@ public class CursorDetection : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         gr.Raycast(pointerEventData, results);
 
+        // if at least 1 result is found, change. Otherwise keep the same
         if (results.Count > 0)
         {
             objectID = int.Parse(results[0].gameObject.name);
