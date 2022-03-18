@@ -146,7 +146,19 @@ MonoBehaviour:
     m_ActionId: 519305cd-9f58-4dab-b1e5-2a0a2093a28f
     m_ActionName: UI/Click[/XInputControllerWindows/buttonSouth,/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2400688400997443897}
+        m_TargetAssemblyTypeName: CursorMovement, Assembly-CSharp
+        m_MethodName: Leave
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a3e4aebb-1e3b-43eb-b4b1-7fca427154d8
     m_ActionName: UI/Leave[/XInputControllerWindows/buttonEast,/Keyboard/backspace]
   m_NeverAutoSwitchControlSchemes: 0
@@ -203,3 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bb884278b177441bc8ac2292874c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characters:
+  - {fileID: 21300000, guid: f71b1c69ead58894da176120af8376e3, type: 3}
+  - {fileID: 21300000, guid: 6633b5e76d35b394cabca91726ce1199, type: 3}
+  - {fileID: 21300000, guid: 691b6a5bd421f924889429f40015b7eb, type: 3}
+  - {fileID: 21300000, guid: 35ac54fd228b78344af5c881990635f9, type: 3}
+  current: {fileID: 742756248538173096, guid: b6ca96bf3ac239948a7c4bd92fd1ed3e, type: 3}

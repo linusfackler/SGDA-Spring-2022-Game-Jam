@@ -37,15 +37,15 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Controls\PlayerControls.cs" />
+     <Compile Include="Assets\Scripts\CursorMovement.cs" />
+     <Compile Include="Assets\Scripts\SelectBlue.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\CursorDetection.cs" />
      <Compile Include="Assets\Scripts\SliderScript.cs" />
      <Compile Include="Assets\Scripts\SelectRed.cs" />
      <Compile Include="Assets\Scripts\JoinPlayer.cs" />
      <Compile Include="Assets\Scripts\TextColor.cs" />
-     <Compile Include="Assets\Scripts\SelectBlue.cs" />
-     <Compile Include="Assets\Scripts\CursorMovement.cs" />
-     <Compile Include="Assets\CursorDetection.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
