@@ -220,4 +220,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6633b5e76d35b394cabca91726ce1199, type: 3}
   - {fileID: 21300000, guid: 691b6a5bd421f924889429f40015b7eb, type: 3}
   - {fileID: 21300000, guid: 35ac54fd228b78344af5c881990635f9, type: 3}
-  current: {fileID: 742756248538173096, guid: b6ca96bf3ac239948a7c4bd92fd1ed3e, type: 3}
+  texts:
+  - {fileID: 0}
+  - {fileID: 0}
