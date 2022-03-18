@@ -14,6 +14,8 @@ public class CursorDetection : MonoBehaviour
     private GameObject current;
     private int objectID;
 
+    private Text test;
+
     void Start()
     {
         gr = GetComponentInParent<GraphicRaycaster>();
