@@ -40,12 +40,4 @@ public class CursorMovement : MonoBehaviour
     {
         currentPosition = context.ReadValue<Vector2>();
     }
-
-    public void Leave(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Destroy(gameObject);
-        }
-    }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class CursorDetection : MonoBehaviour
@@ -12,6 +13,7 @@ public class CursorDetection : MonoBehaviour
     public Sprite[] characters;
     public GameObject[] texts;
     public bool chosen = false;
+    public int pickedPlayer;
 
     private GameObject current, redIMG, blueIMG, blueSquare, redSquare;
     private int objectID;
@@ -68,23 +70,40 @@ public class CursorDetection : MonoBehaviour
             {
                 if (this.gameObject.name == "Player0")
                 {
-                    // current = redIMG;
-                    // current.GetComponent<Image>().sprite = characters[objectID];
-                    // GameObject.Find("Player1name").GetComponent<TMP_Text>().text = characters[objectID].name;
                     redSquare.SetActive(false);
-                    // redSquare.transform.position = boxPosition;
                 }
 
                 else if (this.gameObject.name == "Player1")
                 {
-                    // current = blueIMG;
-                    // current.GetComponent<Image>().sprite = characters[objectID];
-                    // GameObject.Find("Player2name").GetComponent<TMP_Text>().text = characters[objectID].name;
                     blueSquare.SetActive(false);
-                    // blueSquare.transform.position = boxPosition;
                 }
             }
         }
         
+    }
+
+    public void Select(InputAction.CallbackContext context)
+    {
+        if (!chosen)
+        {
+            pickedPlayer = objectID;
+            chosen = true;
+        }
+    }
+
+    public void Back(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (chosen)
+            {
+                chosen = false;
+            }
+
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

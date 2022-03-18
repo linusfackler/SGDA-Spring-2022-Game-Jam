@@ -142,14 +142,26 @@ MonoBehaviour:
     m_ActionId: 9da81746-f1c7-4d01-9d21-91304c63be94
     m_ActionName: UI/Join[/XInputControllerWindows/start,/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -3603586802796420025}
+        m_TargetAssemblyTypeName: CursorDetection, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 519305cd-9f58-4dab-b1e5-2a0a2093a28f
     m_ActionName: UI/Click[/XInputControllerWindows/buttonSouth,/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2400688400997443897}
-        m_TargetAssemblyTypeName: CursorMovement, Assembly-CSharp
-        m_MethodName: Leave
+      - m_Target: {fileID: -3603586802796420025}
+        m_TargetAssemblyTypeName: CursorDetection, Assembly-CSharp
+        m_MethodName: Back
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -230,3 +242,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   chosen: 0
+  pickedPlayer: 0
