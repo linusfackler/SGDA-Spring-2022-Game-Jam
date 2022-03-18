@@ -5,6 +5,7 @@ public class JoinPlayer : MonoBehaviour
 {   
     public GameObject[] enter;
     public GameObject[] players;
+    public GameObject[] squares;
 
     public Transform[] spawnLocations;
     public Transform canvas;
@@ -26,6 +27,7 @@ public class JoinPlayer : MonoBehaviour
         {
             players[id].SetActive(true);
             enter[id].SetActive(false);
+            squares[id].SetActive(true);
         }
     }
 
@@ -34,5 +36,6 @@ public class JoinPlayer : MonoBehaviour
         id = playerInput.playerIndex;
         players[id].SetActive(false);
         enter[id].SetActive(true);
+        squares[id].SetActive(false);
     }
 }
