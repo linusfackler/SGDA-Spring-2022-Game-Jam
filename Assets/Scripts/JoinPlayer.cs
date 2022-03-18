@@ -21,6 +21,7 @@ public class JoinPlayer : MonoBehaviour
         playerInput.gameObject.GetComponent<CursorMovement>().startPos = spawnLocations[id].position;
         playerInput.gameObject.transform.SetParent(canvas);
         playerInput.gameObject.transform.SetAsLastSibling();
+        playerInput.gameObject.name = "Player" + id;
 
         playerInput.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 

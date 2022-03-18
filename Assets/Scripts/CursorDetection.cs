@@ -14,6 +14,8 @@ public class CursorDetection : MonoBehaviour
     private GameObject current;
     private int objectID;
 
+    //private int id;
+
     void Start()
     {
         gr = GetComponentInParent<GraphicRaycaster>();
@@ -28,9 +30,18 @@ public class CursorDetection : MonoBehaviour
         if (results.Count > 0)
         {
             objectID = int.Parse(results[0].gameObject.name);
-            current = GameObject.Find("RedIMG");
-            current.GetComponent<Image>().sprite = characters[objectID];
-            print("name: " + current.GetComponent<Image>().sprite.name);
+            
+            if (this.gameObject.name == "Player0")
+            {
+                current = GameObject.Find("RedIMG");
+                current.GetComponent<Image>().sprite = characters[objectID];
+            }
+
+            else if (this.gameObject.name == "Player1")
+            {
+                current = GameObject.Find("BlueIMG");
+                current.GetComponent<Image>().sprite = characters[objectID];
+            }
         }
     }
 }
