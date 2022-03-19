@@ -4,15 +4,23 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public Transform groundCheck;
+    //public Transform groundCheck;
     public LayerMask groundLayer;
     public Animator animator;
+    public Vector2 startPos;
 
     private float horizontal;       // moving direction on x-axis
     public float speed;             // unique stat - running speed
     public float jumpingPower;      // unique stat - jumping speed
     private bool hasDoubleJumped;   // controls whether double jump used
     private bool isFacingRight = true;
+
+    private Vector3 groundPos;
+
+    void Start()
+    {
+        transform.position = startPos;
+    }
 
     void Update()
     {
@@ -98,7 +106,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        groundPos = new Vector3 (transform.position.x, transform.position.y - this.gameObject.GetComponent<SpriteRenderer>().bounds.size.y, transform.position.z);
+        return Physics2D.OverlapCircle(groundPos, 0.2f, groundLayer);
     }
 
     private void Flip()

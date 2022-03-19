@@ -14,12 +14,15 @@ public class CursorDetection : MonoBehaviour
     public Sprite[] fingers;
     public bool chosen = false;
     public bool done = false;
-    public int pickedPlayer;
+    public int playerID;
 
     private GameObject current, redIMG, blueIMG, blueSquare, redSquare, readyRed, readyBlue, startGame;
     private int objectID;
     private Vector3 boxPosition;
     private int redID, blueID;
+
+    public static int pickedPlayer0;
+    public static int pickedPlayer1;
 
     void Start()
     {
@@ -28,44 +31,36 @@ public class CursorDetection : MonoBehaviour
         readyRed = GameObject.Find("ReadyRed");
         startGame = GameObject.Find("START");
 
-        if (this.gameObject.name == "Player0")
+        if (playerID == 0)
         {        
             redIMG = GameObject.Find("RedIMG");
             redSquare = GameObject.Find("RedSquare");
-            //readyRed.SetActive(false);
             this.gameObject.GetComponent<Image>().sprite = fingers[0];
-
-
-            // startGame.SetActive(false);
-            // startGame.gameObject.transform.SetAsLastSibling();
         }
 
-        else if (this.gameObject.name == "Player1")
+        else if (playerID == 1)
         {
             blueIMG = GameObject.Find("BlueIMG");
             blueSquare = GameObject.Find("BlueSquare");
             this.gameObject.GetComponent<Image>().sprite = fingers[1];
-            //readyBlue.SetActive(false);
         }
         this.gameObject.GetComponent<Transform>().localScale = new Vector3 (0.2f, 0.2f, 0.2f);
     }
 
     void Update()
     {
-        pointerEventData.position = new Vector3 (transform.position.x - 35f, transform.position.y + 10, transform.position.z);
+        pointerEventData.position = new Vector3 (transform.position.x - 35f, transform.position.y + 10f, transform.position.z);
         List<RaycastResult> results = new List<RaycastResult>();
         gr.Raycast(pointerEventData, results);
-
-        // if at least 1 result is found, change. Otherwise keep the same
 
         if (!chosen && !done)
         {
             if (results.Count > 0)
             {
-                boxPosition = new Vector3(results[0].gameObject.transform.position.x, results[0].gameObject.transform.position.y + 22f, results[0].gameObject.transform.position.z);
+                boxPosition = new Vector3(results[0].gameObject.transform.position.x, results[0].gameObject.transform.position.y + 30f, results[0].gameObject.transform.position.z);
                 objectID = int.Parse(results[0].gameObject.name);
                 
-                if (this.gameObject.name == "Player0")
+                if (playerID == 0)
                 {
                     current = redIMG;
                     current.GetComponent<Image>().sprite = characters[objectID];
@@ -74,7 +69,7 @@ public class CursorDetection : MonoBehaviour
                     redSquare.transform.position = boxPosition;
                 }
 
-                else if (this.gameObject.name == "Player1")
+                else if (playerID == 1)
                 {
                     current = blueIMG;
                     current.GetComponent<Image>().sprite = characters[objectID];
@@ -86,12 +81,12 @@ public class CursorDetection : MonoBehaviour
 
             else
             {
-                if (this.gameObject.name == "Player0")
+                if (playerID == 0)
                 {
                     redSquare.SetActive(false);
                 }
 
-                else if (this.gameObject.name == "Player1")
+                else if (playerID == 1)
                 {
                     blueSquare.SetActive(false);
                 }
@@ -105,26 +100,23 @@ public class CursorDetection : MonoBehaviour
         {
             if (!chosen && !done)
             {
-                pickedPlayer = objectID;
                 chosen = true;
 
 
-                if (this.gameObject.name == "Player0")
+                if (playerID == 0)
                 {
-                    //readyRed.SetActive(true);
                     readyRed.transform.SetAsLastSibling();
-                    Debug.Log("Landed here for some reason");
+                    pickedPlayer0 = objectID;
                 }
 
-                else if (this.gameObject.name == "Player1")
+                else if (playerID == 1)
                 {
-                    //readyBlue.SetActive(true);
                     readyBlue.transform.SetAsLastSibling();
+                    pickedPlayer1 = objectID;
                 }
 
                 redID = readyRed.transform.GetSiblingIndex();
                 blueID = readyBlue.transform.GetSiblingIndex();
-                //if (readyRed.activeSelf && readyBlue.activeSelf)
                 if (redID > 6 && blueID > 6)
                 {
                     startGame.gameObject.transform.SetAsLastSibling();
@@ -147,22 +139,15 @@ public class CursorDetection : MonoBehaviour
 
             chosen = false;
 
-            if (this.gameObject.name == "Player0" && redID > 6)
+            if (playerID == 0 && redID > 6)
             {
-                //readyRed.SetActive(false);
                 readyRed.transform.SetAsFirstSibling();
             }
 
-            else if (this.gameObject.name == "Player1" && blueID > 6)
+            else if (playerID == 1 && blueID > 6)
             {
-                //readyBlue.SetActive(false);
                 readyBlue.transform.SetAsFirstSibling();
             }
-
-            // else if (this.gameObject.name == "Player0" && redID < 6)
-            // {
-            //     Destroy(gameObject);
-            // }
 
             else
             {

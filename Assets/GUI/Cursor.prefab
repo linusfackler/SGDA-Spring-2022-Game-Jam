@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2400688400997443897}
   - component: {fileID: 2400688400997443898}
   - component: {fileID: -3603586802796420025}
+  - component: {fileID: -3957774754447778309}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -214,7 +215,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-3603586802796420025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,5 +244,30 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8fafeadb8ad2c18429775fe93ad9c3bd, type: 3}
   chosen: 0
   done: 0
-  pickedPlayer: 0
-  startGame: {fileID: 2548654110269652972, guid: b430b91fc336713458339da1ba1b8655, type: 3}
+  playerID: 0
+--- !u!61 &-3957774754447778309
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400688400997443900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

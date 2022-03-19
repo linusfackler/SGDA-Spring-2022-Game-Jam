@@ -15,7 +15,7 @@ public class JoinPlayer : MonoBehaviour
     public void OnPlayerJoined(PlayerInput playerInput)
     {    
         id = playerInput.playerIndex;
-        playerInput.gameObject.GetComponent<CursorMovement>().playerID = id + 1;
+        playerInput.gameObject.GetComponent<CursorDetection>().playerID = id;
         playerInput.gameObject.GetComponent<CursorMovement>().startPos = spawnLocations[id].position;
         playerInput.gameObject.transform.SetParent(canvas);
         playerInput.gameObject.transform.SetAsLastSibling();
