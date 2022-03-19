@@ -79,17 +79,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void Land(InputAction.CallbackContext context)
     {
-        if (!isGrounded())
+        if (context.performed)
         {
-            rb.velocity = new Vector2(rb.velocity.x, -speed);
-            animator.SetBool("IsFalling", true);
-            animator.SetBool("IsDoubleJump", false);
-            animator.SetBool("IsJumping", false);
-        }
+            if (!isGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -speed);
+                animator.SetBool("IsFalling", true);
+                animator.SetBool("IsDoubleJump", false);
+                animator.SetBool("IsJumping", false);
+            }
 
-        if (Mathf.Abs(rb.velocity.y) == 0f)
-        {
-            animator.SetBool("IsFalling", false);            
+            if (Mathf.Abs(rb.velocity.y) == 0f)
+            {
+                animator.SetBool("IsFalling", false);            
+            }
         }
     }
 
