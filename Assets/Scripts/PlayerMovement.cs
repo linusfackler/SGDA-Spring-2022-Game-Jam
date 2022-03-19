@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
 
-            if (rb.velocity.y == 0)
+            else if (rb.velocity.y == 0)
             {
                 animator.SetBool("IsJumping", true);
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded())
             {
-                rb.velocity = new Vector2(rb.velocity.x, -speed);
+                rb.velocity = new Vector2(rb.velocity.x, -speed * 1.2f);
                 animator.SetBool("IsFalling", true);
                 animator.SetBool("IsDoubleJump", false);
                 animator.SetBool("IsJumping", false);
