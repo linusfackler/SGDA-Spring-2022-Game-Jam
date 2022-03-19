@@ -577,6 +577,7 @@ MonoBehaviour:
   characters:
   - {fileID: 21300000, guid: f71b1c69ead58894da176120af8376e3, type: 3}
   - {fileID: 21300000, guid: 6633b5e76d35b394cabca91726ce1199, type: 3}
+  playerManager: {fileID: 219944747}
 --- !u!1 &229201282
 GameObject:
   m_ObjectHideFlags: 0
