@@ -191,7 +191,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Join"",
+                    ""name"": ""StartGame"",
                     ""type"": ""Button"",
                     ""id"": ""9da81746-f1c7-4d01-9d21-91304c63be94"",
                     ""expectedControlType"": ""Button"",
@@ -446,7 +446,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Join"",
+                    ""action"": ""StartGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -457,14 +457,14 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Join"",
+                    ""action"": ""StartGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""b10c96db-3dd4-48c9-b585-4c88bb254745"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -542,7 +542,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Slide = m_UI.FindAction("Slide", throwIfNotFound: true);
-        m_UI_Join = m_UI.FindAction("Join", throwIfNotFound: true);
+        m_UI_StartGame = m_UI.FindAction("StartGame", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_Leave = m_UI.FindAction("Leave", throwIfNotFound: true);
     }
@@ -655,7 +655,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Navigate;
     private readonly InputAction m_UI_Slide;
-    private readonly InputAction m_UI_Join;
+    private readonly InputAction m_UI_StartGame;
     private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_Leave;
     public struct UIActions
@@ -664,7 +664,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         public InputAction @Slide => m_Wrapper.m_UI_Slide;
-        public InputAction @Join => m_Wrapper.m_UI_Join;
+        public InputAction @StartGame => m_Wrapper.m_UI_StartGame;
         public InputAction @Click => m_Wrapper.m_UI_Click;
         public InputAction @Leave => m_Wrapper.m_UI_Leave;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -682,9 +682,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Slide.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSlide;
                 @Slide.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSlide;
                 @Slide.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSlide;
-                @Join.started -= m_Wrapper.m_UIActionsCallbackInterface.OnJoin;
-                @Join.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnJoin;
-                @Join.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnJoin;
+                @StartGame.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStartGame;
+                @StartGame.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStartGame;
+                @StartGame.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStartGame;
                 @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
@@ -701,9 +701,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Slide.started += instance.OnSlide;
                 @Slide.performed += instance.OnSlide;
                 @Slide.canceled += instance.OnSlide;
-                @Join.started += instance.OnJoin;
-                @Join.performed += instance.OnJoin;
-                @Join.canceled += instance.OnJoin;
+                @StartGame.started += instance.OnStartGame;
+                @StartGame.performed += instance.OnStartGame;
+                @StartGame.canceled += instance.OnStartGame;
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
@@ -742,7 +742,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
-        void OnJoin(InputAction.CallbackContext context);
+        void OnStartGame(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnLeave(InputAction.CallbackContext context);
     }

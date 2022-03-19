@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class CursorDetection : MonoBehaviour
@@ -13,16 +14,18 @@ public class CursorDetection : MonoBehaviour
     public Sprite[] characters;
     public Sprite[] fingers;
     public bool chosen = false;
-    public bool done = false;
+    public bool done;
     public int playerID;
 
     private GameObject current, redIMG, blueIMG, blueSquare, redSquare, readyRed, readyBlue, startGame;
     private int objectID;
     private Vector3 boxPosition;
-    private int redID, blueID;
+    private int redID = 0, blueID = 0;
 
     public static int pickedPlayer0;
     public static int pickedPlayer1;
+
+    public PlayerInputManager pls;
 
     void Start()
     {
@@ -30,6 +33,8 @@ public class CursorDetection : MonoBehaviour
         readyBlue = GameObject.Find("ReadyBlue");
         readyRed = GameObject.Find("ReadyRed");
         startGame = GameObject.Find("START");
+        pls = PlayerInputManager.FindObjectOfType<PlayerInputManager>();
+        done = false;
 
         if (playerID == 0)
         {        
@@ -45,6 +50,7 @@ public class CursorDetection : MonoBehaviour
             this.gameObject.GetComponent<Image>().sprite = fingers[1];
         }
         this.gameObject.GetComponent<Transform>().localScale = new Vector3 (0.2f, 0.2f, 0.2f);
+        allIn();
     }
 
     void Update()
@@ -135,6 +141,7 @@ public class CursorDetection : MonoBehaviour
             blueID = readyBlue.transform.GetSiblingIndex();
             
             done = false;
+            print("landed in back");
             startGame.gameObject.transform.SetAsFirstSibling();
 
             chosen = false;
@@ -153,6 +160,31 @@ public class CursorDetection : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+    }
+
+    public void StartGame(InputAction.CallbackContext context)
+    {
+        if (pls.playerCount == 2)
+        {
+            redID = readyRed.transform.GetSiblingIndex();
+            blueID = readyBlue.transform.GetSiblingIndex();
+            if (redID > 6 && blueID > 6)
+            {
+                done = true;
+            }
+            if (context.started && done)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+    }
+
+    public void allIn()
+    {
+        if (pls.playerCount == 2)
+        {
+            pls.DisableJoining();
         }
     }
 }

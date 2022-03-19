@@ -139,7 +139,19 @@ MonoBehaviour:
     m_ActionId: 4620a766-ccad-4a6b-bda4-637175ffd269
     m_ActionName: UI/Slide[/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -3603586802796420025}
+        m_TargetAssemblyTypeName: CursorDetection, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9da81746-f1c7-4d01-9d21-91304c63be94
     m_ActionName: UI/Join[/XInputControllerWindows/start,/Keyboard/enter]
   - m_PersistentCalls:
@@ -193,7 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   rb: {fileID: 2400688400997443898}
-  playerID: 0
   startPos: {x: 0, y: 0}
 --- !u!50 &2400688400997443898
 Rigidbody2D:

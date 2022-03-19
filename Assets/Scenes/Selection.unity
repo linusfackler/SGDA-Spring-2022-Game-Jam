@@ -6069,7 +6069,7 @@ MonoBehaviour:
       m_SingletonActionBindings:
       - m_Name: 
         m_Id: 65da5262-4bcf-4d40-b2fb-67635aae46b7
-        m_Path: <Gamepad>/start
+        m_Path: <Gamepad>/select
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -6077,7 +6077,7 @@ MonoBehaviour:
         m_Flags: 0
       - m_Name: 
         m_Id: 5d62e451-cf2e-468b-b47a-7b72697f55b2
-        m_Path: <Keyboard>/enter
+        m_Path: <Keyboard>/space
         m_Interactions: 
         m_Processors: 
         m_Groups: 

@@ -169,7 +169,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Join",
+                    "name": "StartGame",
                     "type": "Button",
                     "id": "9da81746-f1c7-4d01-9d21-91304c63be94",
                     "expectedControlType": "Button",
@@ -424,7 +424,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Join",
+                    "action": "StartGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -435,14 +435,14 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Join",
+                    "action": "StartGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "b10c96db-3dd4-48c9-b585-4c88bb254745",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
