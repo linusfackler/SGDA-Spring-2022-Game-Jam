@@ -21,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
         else if (isFacingRight && horizontal < 0f)
             Flip();         // flip if character moves in opposite direction
 
-        if (Mathf.Abs(rb.velocity.y) == 0)
+
+        if (Mathf.Abs(rb.velocity.y) == 0f)
         {
             hasDoubleJumped = false;
             animator.SetBool("IsJumping", false);
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (context.canceled && rb.velocity.y > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.4f);
         }
     }
 
@@ -80,10 +81,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, -speed*0.8f);
+            rb.velocity = new Vector2(rb.velocity.x, -speed);
             animator.SetBool("IsFalling", true);
             animator.SetBool("IsDoubleJump", false);
             animator.SetBool("IsJumping", false);
+        }
+
+        if (Mathf.Abs(rb.velocity.y) == 0f)
+        {
+            animator.SetBool("IsFalling", false);            
         }
     }
 
