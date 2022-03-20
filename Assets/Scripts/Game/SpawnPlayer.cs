@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D.Animation;
 
 public class SpawnPlayer : MonoBehaviour
 {
     public Transform[] spawnLocations;
-    public Sprite[] characters;
     public PlayerInputManager playerManager;
+    public SpriteLibraryAsset[] sla;
 
     private int id;
 
@@ -19,17 +18,17 @@ public class SpawnPlayer : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
-        print("PickedPlayer0: " + CursorDetection.pickedPlayer0);
-        print("PickedPlayer1: " + CursorDetection.pickedPlayer1);
         id = playerInput.playerIndex;
         if (id == 0)
         {
-            playerInput.gameObject.GetComponent<SpriteRenderer>().sprite = characters[CursorDetection.pickedPlayer0];
+            //playerInput.gameObject.GetComponent<SpriteRenderer>().sprite = characters[CursorDetection.pickedPlayer0];
+            playerInput.gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset = sla[0];
             
         }
         if (id == 1)
         {
-            playerInput.gameObject.GetComponent<SpriteRenderer>().sprite = characters[CursorDetection.pickedPlayer1];
+            //playerInput.gameObject.GetComponent<SpriteRenderer>().sprite = characters[CursorDetection.pickedPlayer1];
+            playerInput.gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset = sla[1];
             playerInput.gameObject.GetComponent<SpriteRenderer>().flipX = true;
             playerInput.gameObject.GetComponent<PlayerMovement>().isFacingRight = false;
         }
