@@ -45,6 +45,7 @@
      <Compile Include="Assets\Scripts\Menu\SliderScript.cs" />
      <Compile Include="Assets\Scripts\SelectionScreen\JoinPlayer.cs" />
      <Compile Include="Assets\Scripts\Menu\TextColor.cs" />
+     <Compile Include="Assets\Scripts\SelectionScreen\BackgroundScroller.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
