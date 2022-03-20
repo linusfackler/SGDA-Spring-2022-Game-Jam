@@ -17,11 +17,6 @@ public class SpawnPlayer : MonoBehaviour
         playerManager.JoinPlayer(1, 0, JoinPlayer.scheme1,JoinPlayer.device1);
     }
 
-    void Update()
-    {
-        print(id + 2 * Random.Range(0,4));
-    }
-
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         id = playerInput.playerIndex;

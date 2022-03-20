@@ -39,12 +39,12 @@
      <Compile Include="Assets\Controls\PlayerControls.cs" />
      <Compile Include="Assets\Scripts\SelectionScreen\CursorMovement.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Game\SpawnPlayer.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\SelectionScreen\CursorDetection.cs" />
      <Compile Include="Assets\Scripts\SliderScript.cs" />
      <Compile Include="Assets\Scripts\SelectionScreen\JoinPlayer.cs" />
      <Compile Include="Assets\Scripts\TextColor.cs" />
-     <Compile Include="Assets\Scripts\Game\SpawnPlayer.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
