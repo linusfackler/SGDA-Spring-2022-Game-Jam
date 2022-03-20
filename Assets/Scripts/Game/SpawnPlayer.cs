@@ -19,6 +19,8 @@ public class SpawnPlayer : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
+        print("PickedPlayer0: " + CursorDetection.pickedPlayer0);
+        print("PickedPlayer1: " + CursorDetection.pickedPlayer1);
         id = playerInput.playerIndex;
         if (id == 0)
         {
