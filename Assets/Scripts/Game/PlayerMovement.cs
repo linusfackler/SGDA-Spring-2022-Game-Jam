@@ -76,13 +76,6 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("IsDoubleJump", true);
             }
         }
-// (context.canceled && rb.velocity.y > 0f) || 
-
-        // if (rb.position.y - oldHeight > 6f)
-        // {
-        //     print("reached");
-        //     rb.velocity = new Vector2(rb.velocity.x, -speed * 0.2f);
-        // }
     }
 
     public void Move(InputAction.CallbackContext context)
