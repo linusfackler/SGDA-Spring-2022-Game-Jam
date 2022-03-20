@@ -2992,9 +2992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ebcd7c4174e0b48862c2ce6fccc728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 2126893060}
-  options: {fileID: 482171233}
-  opt: {fileID: 1477438722}
 --- !u!222 &1327144599086674955
 CanvasRenderer:
   m_ObjectHideFlags: 0
