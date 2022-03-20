@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;             // unique stat - running speed
     public float jumpingPower;      // unique stat - jumping speed
     private bool hasDoubleJumped;   // controls whether double jump used
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
 
     private Vector3 groundPos;
 
@@ -117,6 +117,4 @@ public class PlayerMovement : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;
     }
-
-
 }

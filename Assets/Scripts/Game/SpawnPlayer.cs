@@ -29,6 +29,7 @@ public class SpawnPlayer : MonoBehaviour
         {
             playerInput.gameObject.GetComponent<SpriteRenderer>().sprite = characters[CursorDetection.pickedPlayer1];
             playerInput.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            playerInput.gameObject.GetComponent<PlayerMovement>().isFacingRight = false;
         }
         //playerInput.gameObject.GetComponent<PlayerMovement>().startPos = spawnLocations[id + 2 * Random.Range(0,3)].position;
         // KEEP for later

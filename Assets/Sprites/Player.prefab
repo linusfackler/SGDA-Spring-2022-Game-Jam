@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: f71b1c69ead58894da176120af8376e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6633b5e76d35b394cabca91726ce1199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   animator: {fileID: 8063441165944560072}
+  startPos: {x: 0, y: 0}
   speed: 8
   jumpingPower: 12
 --- !u!50 &8063441165944560085
