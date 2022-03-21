@@ -13,10 +13,12 @@ public class CursorDetection : MonoBehaviour
 
     public Sprite[] characters;
     public Sprite[] fingers;
+    public AudioClip[] characterSound;
     public bool chosen = false;
     public int playerID;
     public bool allIn = false;
 
+    private AudioSource characterAudio; 
     private GameObject current, redIMG, blueIMG, blueSquare, redSquare, readyRed, readyBlue, startGame;
     private int objectID;
     private Vector3 boxPosition;
@@ -33,6 +35,7 @@ public class CursorDetection : MonoBehaviour
         readyRed = GameObject.Find("ReadyRed");
         startGame = GameObject.Find("START");
         done = false;
+        characterAudio = GetComponent<AudioSource>();
 
         if (playerID == 0)
         {        
@@ -116,6 +119,10 @@ public class CursorDetection : MonoBehaviour
                     readyBlue.transform.SetAsLastSibling();
                     pickedPlayer1 = objectID;
                 }
+
+                characterAudio.clip = characterSound[objectID];
+                characterAudio.Play();
+
 
                 redID = readyRed.transform.GetSiblingIndex();
                 blueID = readyBlue.transform.GetSiblingIndex();

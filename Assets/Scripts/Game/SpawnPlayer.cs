@@ -8,8 +8,12 @@ public class SpawnPlayer : MonoBehaviour
     public PlayerInputManager playerManager;
     public SpriteLibraryAsset[] sla;
 
-    private int id;
-    private GameObject firePoint;
+    [HideInInspector]
+    public static int id;
+    [HideInInspector]
+    public static int character;
+    public static GameObject firePoint0;
+    public static GameObject firePoint1;
 
     void Start()
     {
@@ -22,23 +26,27 @@ public class SpawnPlayer : MonoBehaviour
         id = playerInput.playerIndex;
         if (id == 0)
         {
-            playerInput.gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset = sla[CursorDetection.pickedPlayer0];
+            playerInput.gameObject.name = "Player0";
+            character = CursorDetection.pickedPlayer0;
+            playerInput.gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset = sla[character];
 
-            firePoint = new GameObject("FirePoint0");
-            firePoint.transform.SetParent(playerInput.gameObject.transform);     
-            firePoint.transform.position = new Vector3 (playerInput.gameObject.transform.position.x + 0.5f, playerInput.gameObject.transform.position.y, playerInput.transform.position.z);       
+            firePoint0 = new GameObject("FirePoint0");
+            firePoint0.transform.SetParent(playerInput.gameObject.transform);     
+            firePoint0.transform.position = new Vector3 (playerInput.gameObject.transform.position.x + 1f, playerInput.gameObject.transform.position.y, playerInput.transform.position.z);       
             //firePoint.transform.position = playerInput.gameObject.transform.position;
         }
-        if (id == 1)
+        else if (id == 1)
         {
-            playerInput.gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset = sla[CursorDetection.pickedPlayer1];
+            playerInput.gameObject.name = "Player1";
+            character = CursorDetection.pickedPlayer1;
+            playerInput.gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset = sla[character];
             playerInput.gameObject.GetComponent<SpriteRenderer>().flipX = true;
             playerInput.gameObject.GetComponent<PlayerMovement>().isFacingRight = false;
 
-            firePoint = new GameObject("FirePoint1");
-            firePoint.transform.SetParent(playerInput.gameObject.transform);     
-            //firePoint.transform.position = new Vector3 (playerInput.gameObject.transform.position.x + 50f, playerInput.gameObject.transform.position.y, 0f);
-            firePoint.transform.position = playerInput.gameObject.transform.position;
+            firePoint1 = new GameObject("FirePoint1");
+            firePoint1.transform.SetParent(playerInput.gameObject.transform);     
+            firePoint1.transform.position = new Vector3 (playerInput.gameObject.transform.position.x - 1f, playerInput.gameObject.transform.position.y, playerInput.transform.position.z);    
+            //firePoint.transform.position = playerInput.gameObject.transform.position;
         }
         //playerInput.gameObject.GetComponent<PlayerMovement>().startPos = spawnLocations[id + 2 * Random.Range(0,3)].position;
         // KEEP for later

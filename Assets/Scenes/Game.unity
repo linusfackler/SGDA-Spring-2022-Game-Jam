@@ -578,6 +578,8 @@ MonoBehaviour:
   sla:
   - {fileID: 7108339969198208228, guid: d4b75595b81c1064fa0f75d5ecd58a02, type: 3}
   - {fileID: 7108339969198208228, guid: 1621f03a3804f4046bc2e347026acb46, type: 3}
+  - {fileID: 7108339969198208228, guid: 7749a883cb854a04e9a3ab9d5aa16f3d, type: 3}
+  - {fileID: 7108339969198208228, guid: d0b2eca25ce07ca45b9cadda8fb77770, type: 3}
 --- !u!1 &229201282
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245887623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: -0.32, z: 0}
+  m_LocalPosition: {x: -0.01, y: -0.32, z: 0}
   m_LocalScale: {x: 13.921152, y: 13.921152, z: 13.921152}
   m_ConstrainProportionsScale: 0
   m_Children: []
