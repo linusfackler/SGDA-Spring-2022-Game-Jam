@@ -10,7 +10,8 @@ public class Weapon : MonoBehaviour
 
     public GameObject[] bullet;
 
-    private Transform firepoint;
+    private GameObject firepoint;
+    private Vector3 rot;
 
 
     public void Start()
@@ -19,14 +20,14 @@ public class Weapon : MonoBehaviour
         {
             //id = 0;
             character = CursorDetection.pickedPlayer0;
-            firepoint = SpawnPlayer.firePoint0.transform;
+            firepoint = SpawnPlayer.firePoint0;
         }
 
         else
         {
             //id = 1;
             character = CursorDetection.pickedPlayer1;
-            firepoint = SpawnPlayer.firePoint1.transform;
+            firepoint = SpawnPlayer.firePoint1;
         }
         shootAudio = GetComponent<AudioSource>();
         
@@ -40,8 +41,18 @@ public class Weapon : MonoBehaviour
     {
         if (context.performed)
         {  
-            Instantiate(bullet[character], firepoint.position, firepoint.rotation);
-            shootAudio.Play();
+            if (this.gameObject.name == "Player0")
+            {
+                Instantiate(bullet[character], firepoint.transform.position, firepoint.transform.rotation);     
+            }
+
+            else
+            {
+                firepoint.transform.Rotate(0f, 180f, 0f);
+                Instantiate(bullet[character], firepoint.transform.position, firepoint.transform.rotation);  
+            }
+                
+                shootAudio.Play();
 
         }
 
