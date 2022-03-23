@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
             else
             {
                 firepoint.transform.Rotate(0f, 180f, 0f);
-                Instantiate(bullet[character], firepoint.transform.position, firepoint.transform.rotation);  
+                Instantiate(bullet[character], firepoint.transform.position, firepoint.transform.rotation);
             }
                 
                 shootAudio.Play();
