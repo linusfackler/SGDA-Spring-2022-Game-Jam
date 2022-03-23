@@ -55,7 +55,7 @@ public class CursorDetection : MonoBehaviour
 
     void Update()
     {
-        pointerEventData.position = new Vector3 (transform.position.x - 35f, transform.position.y + 10f, transform.position.z);
+        pointerEventData.position = new Vector3 (transform.position.x - 35f, transform.position.y + 15f, transform.position.z);
         List<RaycastResult> results = new List<RaycastResult>();
         gr.Raycast(pointerEventData, results);
 
@@ -63,7 +63,7 @@ public class CursorDetection : MonoBehaviour
         {
             if (results.Count > 0)
             {
-                boxPosition = new Vector3(results[0].gameObject.transform.position.x, results[0].gameObject.transform.position.y + 30f, results[0].gameObject.transform.position.z);
+                boxPosition = results[0].gameObject.transform.position;
                 objectID = int.Parse(results[0].gameObject.name);
                 
                 if (playerID == 0)
