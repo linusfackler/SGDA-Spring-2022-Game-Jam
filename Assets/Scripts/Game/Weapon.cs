@@ -43,7 +43,8 @@ public class Weapon : MonoBehaviour
         {  
             if (this.gameObject.name == "Player0")
             {
-                Instantiate(bullet[character], firepoint.transform.position, firepoint.transform.rotation);     
+                var _bullet = Instantiate(bullet[character], firepoint.transform.position, firepoint.transform.rotation);
+                _bullet.GetComponent<Bullet>().player = GetComponent<PlayerInput>();    
             }
 
             else

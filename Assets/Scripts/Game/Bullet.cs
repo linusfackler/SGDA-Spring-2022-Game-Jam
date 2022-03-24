@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
-    //public static int playerID;
+    public PlayerInput player;
 
     void Start()
     {
@@ -15,8 +16,20 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
+        if(hitInfo.TryGetComponent<PlayerInput>(out var playerInput))
+        {
+            if(player == playerInput)
+                return;
+
+            
+        }
+
+
         Destroy(gameObject);
     }
-    // more code to follow
 
+    void kill(PlayerInput hitPlayer)
+    {
+
+    }
 }
