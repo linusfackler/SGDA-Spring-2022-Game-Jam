@@ -5,7 +5,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     //public Transform groundCheck;
-    
     public LayerMask groundLayer;
     public Animator animator;
     public Vector2 startPos;
